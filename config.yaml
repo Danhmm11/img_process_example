@@ -1,0 +1,53 @@
+text_video: #config text video
+  name: "Pham Quoc Danh"
+  mssv: "21139073"
+  
+load_video: # config load video
+  path: "final_video.mp4"
+  width: 1280
+  height: 720
+  fps: 30  
+
+show_frame: #config window show video
+  size : [720, 640] # width, height
+  fps: 30 
+  speed: 1
+save_frame: #config save video
+  out_path: "final_video_result.mp4"
+  res: 1280, 720 
+  fps: 30 
+
+threshold: #config threshold
+  threshold: 200
+  kerner_size: [3,3] 
+  iterations_erode: 7
+  iterations_dilate: 10
+  type: ["THRESH_BINARY", # THRESH_BINARY_INV, THRESH_TRUNC, THRESH_TOZERO, THRESH_TOZERO_INV, ADAPTIVE_THRESH_MEAN_C, ADAPTIVE_THRESH_GAUSSIAN_C
+         "THRESH_OTSU"        
+        ]
+  arena_size: 10000
+  #config draw
+  color: 255 # birghtness draw this 255 is white
+  thickness: -1 #mode -1 is fill, 1 is line
+
+blur:
+  kernel_size: [15,15]
+  sigma: 15
+  type: "GaussianBlur"
+
+counter:
+  square: 0.85
+  circle: 0.50
+  # config tracker
+  dt: 1
+  fps: 30
+  tracker_kwargs: {'min_steps_alive': 10, 'max_staleness': 6,'max_staleness': 12}
+  model_spec: "constant_acceleration_and_static_box_size_2d"
+  min_width: 250
+  min_height: 250
+  bounding_box_area_max: 200000
+
+# parameter control frame this display 0 is root frame ,1 gray frame ,2 blur frame (apter gray)
+#                                      3 prethreshold ,4 thresholad(after closeing and opnening)
+display:
+  frame_choose: [0,2,3,4] 

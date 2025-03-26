@@ -1,1 +1,1 @@
-"# img_process_example" 
+Thank you for viewing the Git repository. I sincerely apologize for the lack of deployment instructions. I will try to update them as soon as possible. You can contact me via email at iwastheonlgl01@gmail.com.
